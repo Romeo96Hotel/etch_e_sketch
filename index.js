@@ -3,7 +3,7 @@ const gridButton = document.querySelector("#grid-btn");
 const sizeBtn = document.querySelector("#grid-btn");
 
 /* Gets user input from prompt after pressing button */
-function userInput() {
+function getUserInput() {
   sizeBtn.addEventListener("click", () => {
     const input = parseInt(prompt("input grid size"));
     return input;
