@@ -3,11 +3,12 @@ const gridButton = document.querySelector("#grid-btn");
 const sizeBtn = document.querySelector("#grid-btn");
 
 /* Gets user input from prompt after pressing button */
-sizeBtn.addEventListener("click", () => {
-  const input = parseInt(prompt("input grid size"));
-  container.appendChild(renderGrid(input));
-
-});
+function setGrid() {
+  sizeBtn.addEventListener("click", () => {
+    const input = parseInt(prompt("input grid size"));
+    container.appendChild(renderGrid(input));
+  });
+}
 
 /* Returns a 500px by 500px square grid */
 /* Using number of tiles specified by user */
@@ -25,3 +26,5 @@ function renderGrid(numTiles) {
     return grid;
   }
 }
+
+setGrid();
