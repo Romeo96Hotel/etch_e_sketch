@@ -3,7 +3,7 @@ const gridButton = document.querySelector("#grid-btn");
 const sizeBtn = document.querySelector("#grid-btn");
 
 /* Gets user input from prompt after pressing button */
-function setGrid() {
+function setGridSize() {
   sizeBtn.addEventListener("click", () => {
     const input = parseInt(prompt("input grid size"));
     container.appendChild(renderGrid(input));
@@ -27,4 +27,4 @@ function renderGrid(numTiles) {
   }
 }
 
-setGrid();
+setGridSize();
