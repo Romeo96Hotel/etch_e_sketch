@@ -1,18 +1,23 @@
 const container = document.querySelector(".container");
 const gridButton = document.querySelector("#grid-btn");
 const sizeBtn = document.querySelector("#grid-btn");
-const userInput = prompt("choose grid size");
 
-
+/* creates a square grid using size specified by user */
 function renderGrid(size) {
-  size = parseInt(userInput);
-  /* standard 16 x 16 grid */
-  for (let i = 0; i < 256; i++) {
+  container.style.display = "grid";
+  container.style.gridTemplateColumns = `repeat(${size}, minmax(auto,auto))`;
+  container.style.gridTemplateRows = `repeat(${size}, minmax(auto, auto))`;
+  container.style.backgroundColor = "#ffebcd";
+  container.style.height = "500px";
+  container.style.width = "500px";
+  const area = size * size;
+
+  for (let i = 0; i < area; i++) {
     const grid = document.createElement("div");
-    grid.id = "square";
     grid.addEventListener("mouseover", () => {
       grid.style.backgroundColor = "black";
     });
     container.appendChild(grid);
   }
 }
+
