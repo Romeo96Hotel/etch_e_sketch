@@ -1,5 +1,6 @@
 const container = document.querySelector(".container");
 const gridButton = document.querySelector("#grid-btn");
+let gridSize;
 
 /* standard 16 x 16 grid */
 for (let i = 0; i < 256; i++) {
@@ -10,11 +11,3 @@ for (let i = 0; i < 256; i++) {
   });
   container.appendChild(grid);
 }
-
-/* gets users input from promp and creats a grid of that size */
-function setGridSize(size) {
-  size = getGridSize();
-  console.log(size);
-}
-
-setGridSize();
