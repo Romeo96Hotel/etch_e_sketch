@@ -1,6 +1,7 @@
 const container = document.querySelector(".container");
 const gridButton = document.querySelector("#grid-btn");
 const sizeBtn = document.querySelector("#grid-btn");
+const colorBtn = document.querySelector("#rbw-btn");
 
 /* Returns a 500px by 500px square grid */
 /* Number of tiles is specified by user */
