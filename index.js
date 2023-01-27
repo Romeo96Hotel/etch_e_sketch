@@ -2,6 +2,14 @@ const container = document.querySelector(".container");
 const gridButton = document.querySelector("#grid-btn");
 const sizeBtn = document.querySelector("#grid-btn");
 
+/* Gets user input from prompt after pressing button */
+function userInput() {
+  sizeBtn.addEventListener("click", () => {
+    const input = parseInt(prompt("input grid size"));
+    return input;
+  });
+}
+
 /* creates a 500px by 500px square grid*/
 /* Using number of tiles specified by user */
 function renderGrid(numTiles) {
@@ -21,3 +29,5 @@ function renderGrid(numTiles) {
     container.appendChild(grid);
   }
 }
+
+userInput();
