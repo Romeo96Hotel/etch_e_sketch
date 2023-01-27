@@ -2,15 +2,16 @@ const container = document.querySelector(".container");
 const gridButton = document.querySelector("#grid-btn");
 const sizeBtn = document.querySelector("#grid-btn");
 
-/* creates a square grid using size specified by user */
-function renderGrid(size) {
+/* creates a 500px by 500px square grid*/
+/* Using number of tiles specified by user */
+function renderGrid(numTiles) {
   container.style.display = "grid";
-  container.style.gridTemplateColumns = `repeat(${size}, minmax(auto,auto))`;
-  container.style.gridTemplateRows = `repeat(${size}, minmax(auto, auto))`;
+  container.style.gridTemplateColumns = `repeat(${numTiles}, minmax(auto,auto))`;
+  container.style.gridTemplateRows = `repeat(${numTiles}, minmax(auto, auto))`;
   container.style.backgroundColor = "#ffebcd";
   container.style.height = "500px";
   container.style.width = "500px";
-  const area = size * size;
+  const area = numTiles * numTiles;
 
   for (let i = 0; i < area; i++) {
     const grid = document.createElement("div");
@@ -20,4 +21,3 @@ function renderGrid(size) {
     container.appendChild(grid);
   }
 }
-
