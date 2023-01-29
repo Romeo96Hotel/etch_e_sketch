@@ -1,10 +1,12 @@
 const container = document.querySelector(".container");
 const sizeBtn = document.querySelector("#size-btn");
-const clrBtn = document.querySelector("#clr-btn");
+const clearBtn = document.querySelector("#clr-btn");
 
 /* Etch-e-Sketch */
 /* Button renders new grid*/
 sizeBtn.addEventListener("click", renderGrid);
+
+clearBtn.addEventListener("click", clear);
 
 /* Returns a 500 x 500 square grid */
 /* Number of tiles is initiated by prompt text */
@@ -31,3 +33,11 @@ function renderGrid() {
     container.appendChild(gridSquare);
   }
 }
+
+/* clears grid */
+function clear() {
+  container.textContent = "";
+}
+
+/* rainbow pen functionality */
+function rainbow() {}
