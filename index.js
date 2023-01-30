@@ -1,6 +1,6 @@
 const container = document.querySelector(".container");
 const sizeBtn = document.querySelector("#size-btn");
-const clearBtn = document.querySelector("#clr-btn");
+const clearBtn = document.querySelector("#clear-btn");
 
 /* Etch-e-Sketch */
 /* Button renders new grid*/
