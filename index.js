@@ -1,43 +1,60 @@
-const container = document.querySelector(".container");
-const sizeBtn = document.querySelector("#size-btn");
-const clearBtn = document.querySelector("#clear-btn");
+/* 
+TODO:
+rainbow functionality
+color selection functionality
+size grid functionality */
+class Grid {
+  constructor(container) {
+    this._container = container;
+    this.clear();
+  }
 
-/* Etch-e-Sketch */
-/* Button renders new grid*/
-sizeBtn.addEventListener("click", renderGrid);
+  /* Clears grid of color */
+  clear() {
+    this._container.textContent = "";
+  }
 
-clearBtn.addEventListener("click", clear);
+  /* Creates the grid to specified size */
+  createGrid(number) {
+    this._container.style.display = "grid";
+    this._container.style.gridTemplateColumns = `repeat(${number}, minmax(auto,auto))`;
+    this._container.style.gridTemplateRows = `repeat(${number}, minmax(auto,auto))`;
+    this._container.style.height = "500px";
+  }
 
-/* Returns a 500 x 500 square grid */
-/* Number of tiles is initiated by prompt text */
-/* Pen color is initiated by prompt text */
-function renderGrid() {
-  const numTiles = prompt("Set grid size");
-  const penColor = prompt("Choose color");
-  const area = numTiles * numTiles;
+  /* If container does not have children nodes */
+  /* Appends a grid square to the container */
+  /* grid square changes color on hover */
+  appendGrid(number, color) {
+    const area = number * number;
 
-  container.style.display = "grid";
-  container.style.gridTemplateColumns = `repeat(${numTiles}, minmax(auto, auto))`;
-  container.style.gridTemplateRows = `repeat(${numTiles}, minmax(auto, auto))`;
-  container.style.height = "500px";
-  container.style.width = "500px";
-  container.style.backgroundColor = "gray";
-
-  /* creates the grid with specified number of tiles */
-  /* Hover over each tile changes color from prompt */
-  for (let i = 0; i < area; i++) {
-    const gridSquare = document.createElement("div");
-    gridSquare.addEventListener("mouseover", () => {
-      gridSquare.style.backgroundColor = penColor;
-    });
-    container.appendChild(gridSquare);
+    if (!this._container.hasChildNodes()) {
+      for (let i = 0; i < area; i++) {
+        const gridSquare = document.createElement("div");
+        gridSquare.addEventListener("mouseover", () => {
+          gridSquare.style.backgroundColor = color;
+        });
+        this._container.appendChild(gridSquare);
+      }
+    } else {
+      this.clear();
+    }
   }
 }
 
-/* clears grid */
-function clear() {
-  container.textContent = "";
-}
+const container = document.querySelector("#container");
+const standardBtn = document.querySelector("#standard");
+const rainbowBtn = document.querySelector("#rainbow");
+const clearBtn = document.querySelector("#clear");
+const standardGrid = new Grid(container);
 
-/* rainbow pen functionality */
-function rainbow() {}
+/* creates grid with standard color change*/
+standardBtn.addEventListener("click", () => {
+  standardGrid.createGrid(10);
+  standardGrid.appendGrid(10, "red");
+});
+
+/* clears grid */
+clearBtn.addEventListener("click", () => {
+  standardGrid.clear();
+});
